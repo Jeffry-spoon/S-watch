@@ -5,11 +5,11 @@
 
     <!-- Main -->
     <main class="main">
-      <!-- Home Section -->
+      <!-- Dashboard Section -->
       <section class="home" id="home">
         <div class="home_container contain grid">
           <div class="home_img-bg">
-            <img src="{{asset('img/home.png')}}" alt="" class="home_img" />
+            <img src="{{asset('img/home.png')}}" alt="picture" class="home_img" />
           </div>
 
           <div class="home_social">
@@ -81,7 +81,7 @@
           <article class="featured_card">
             <span class="featured_tag">Sale</span>
 
-            <img src="assets/img/featured1.png" alt="Product" class="featured_img" />
+            <img src="{{asset('img/featured1.png')}}" alt="Product" class="featured_img" />
 
             <div class="featured_data">
               <h3 class="featured_title">Jazzmaster</h3>
@@ -94,7 +94,7 @@
           <article class="featured_card">
             <span class="featured_tag">Sale</span>
 
-            <img src="assets/img/featured2.png" alt="Product" class="featured_img" />
+            <img src="{{asset('img/featured2.png')}}" alt="Product" class="featured_img" />
 
             <div class="featured_data">
               <h3 class="featured_title">Ingersoll</h3>
@@ -107,7 +107,7 @@
           <article class="featured_card">
             <span class="featured_tag">Sale</span>
 
-            <img src="assets/img/featured3.png" alt="Product" class="featured_img" />
+            <img src="{{asset('img/featured3.png')}}" alt="Product" class="featured_img" />
 
             <div class="featured_data">
               <h3 class="featured_title">Rose gold</h3>
@@ -148,7 +148,7 @@
 
         <div class="products_container grid">
           <article class="products_card">
-            <img src="assets/img/product1.png" alt="product" class="products_image" />
+            <img src="{{asset('img/product1.png')}}" alt="product" class="products_image" />
 
             <h3 class="products_title">Spirit rose</h3>
             <span class="products_price"> $1500 </span>
@@ -156,7 +156,7 @@
             <a href="#" class="btn btn-master btn-primary mt-3">Order Now</a>
           </article>
           <article class="products_card">
-            <img src="assets/img/product2.png" alt="product" class="products_image" />
+            <img src="{{asset('img/featured2.png')}}" alt="product" class="products_image" />
 
             <h3 class="products_title">Khaki pilot</h3>
             <span class="products_price"> $1350 </span>
@@ -164,7 +164,7 @@
             <a href="#" class="btn btn-master btn-primary mt-3">Order Now</a>
           </article>
           <article class="products_card">
-            <img src="assets/img/product3.png" alt="product" class="products_image" />
+            <img src="{{asset('img/featured3.png')}}" alt="product" class="products_image" />
 
             <h3 class="products_title">Jubilee black</h3>
             <span class="products_price"> $870 </span>

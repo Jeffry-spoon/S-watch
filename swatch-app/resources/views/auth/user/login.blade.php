@@ -27,7 +27,7 @@
           </section>
 
           <p>
-            <a class="btn btn-border btn-google-signup" href="#"> <img src="{{asset('img/ic_google.svg')}}" class="icon" alt="" /> Log in with Google </a>
+            <a class="btn btn-border btn-google-signup" href="{{ route('user.login.google')}}"> <img src="{{asset('img/ic_google.svg')}}" class="icon" alt="" /> Log in with Google </a>
           </p>
 
           <div class="line">

@@ -1,81 +1,17 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
 
-@section('content')
- <section class="dashboard my-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-12 header-wrap mt-4 text-start">
-            <h4 class="story">DASHBOARD</h4>
-            <h1 class="primary-header">Order Summray</h1>
-          </div>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    You're logged in!
+                </div>
+            </div>
         </div>
-        <div class="row my-5">
-          <table class="table">
-            <tbody>
-              <tr class="align-middle text-start background-color">
-                <td class="product-picture">
-                  <img src="{{ asset('img/featured1.png') }}" height="120" alt="" />
-                </td>
-                <td>
-                  <p class="mb-2">
-                    <strong>Jazzmaster</strong>
-                  </p>
-                  <p>September 24, 2021</p>
-                </td>
-                <td>
-                  <strong>$280,000</strong>
-                </td>
-                <td>
-                  <strong class="text-primary">Process</strong>
-                </td>
-                <td>
-                  <a href="#" class="btn btn-secondary"> Contact Support </a>
-                </td>
-              </tr>
-              <tr class="align-middle text-start background-color">
-                <td class="product-picture">
-                  <img src="{{ asset('img/featured1.png') }}" height="120" alt="" />
-                </td>
-                <td>
-                  <p class="mb-2">
-                    <strong>Jazzmaster</strong>
-                  </p>
-                  <p>September 24, 2021</p>
-                </td>
-                <td>
-                  <strong>$280,000</strong>
-                </td>
-                <td>
-                  <strong class="text-secondary">Delivery</strong>
-                </td>
-                <td>
-                  <a href="#" class="btn btn-secondary"> Contact Support </a>
-                </td>
-              </tr>
-              <tr class="align-middle text-start background-color">
-                <td class="product-picture">
-                  <img src="{{ asset('img/featured1.png') }}" height="120" alt="" />
-                </td>
-                <td>
-                  <p class="mb-2">
-                    <strong>Jazzmaster</strong>
-                  </p>
-                  <p>September 24, 2021</p>
-                </td>
-                <td>
-                  <strong>$280,000</strong>
-                </td>
-                <td>
-                  <strong class="text-success">Done</strong>
-                </td>
-                <td>
-                  <a href="#" class="btn btn-secondary"> Contact Support </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-@endsection
+    </div>
+</x-app-layout>
