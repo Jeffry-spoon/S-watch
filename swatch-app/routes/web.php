@@ -24,8 +24,8 @@ Route::get('/', [CheckoutController::class, 'index']
 )->name('welcome');
 
 Route::get('checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
-Route::get('checkout/{product:slug}', [CheckoutController::class, 'show'])->name('welcome.show');
-Route::post('checkout/{product}', [CheckoutController::class, 'store'])->name('checkout.store');
+Route::get('checkout/{products:slug}', [CheckoutController::class, 'show'])->name('welcome.show');
+Route::post('checkout/{products}', [CheckoutController::class, 'store'])->name('checkout.store');
 
 
 

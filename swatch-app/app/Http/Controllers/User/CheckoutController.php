@@ -4,9 +4,13 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Checkout;
+use App\Models\Discounts;
 use App\Models\products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Checkout\AfterCheckout;
 
 class CheckoutController extends Controller
 {
@@ -42,7 +46,35 @@ class CheckoutController extends Controller
      */
     public function store(Request $request, products $products)
     {
-        return $request->all();
+        // mapping request data
+        $data = $request->all();
+        $data['user_id'] = Auth::id();
+        $data['product_id'] = $products->id;
+
+        // update user data
+        $user = Auth::user();
+        $user->email = $data['email'];
+        $user->name = $data['name'];
+        $user->phone_number = $data['phone'];
+        $user->address = $data['address'];
+        $user->save();
+
+        // // create discount
+        // if ($request->discount) {
+        //     $discount = Discounts::whereCode($request->discount)->first();
+        //     $data['discount_id'] = $discount->id;
+        //     $data['discount_percentage'] = $discount->percentage;
+        // }
+
+         // create checkout
+        $checkout = Checkout::create($data);
+        // return $checkout;
+    //     $this->getSnapRedirect($checkout);
+
+    //    // Sending email
+    //    Mail::to(Auth::user()->email)->send(new AfterCheckout($checkout));
+
+       return redirect(route('checkout.success'));
     }
 
     /**

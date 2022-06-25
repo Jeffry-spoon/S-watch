@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Checkout extends Model
 {
      use HasFactory, SoftDeletes;
 
-    protected $fillabel = [
+    protected $fillable = [
         'user_id',
         'product_id',
         'payment_status',
@@ -20,4 +21,33 @@ class Checkout extends Model
         'discount_percentage',
         'total'
     ];
+
+    /**
+     * Get the Camp that owns the Checkout
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function Camp(): BelongsTo
+    {
+        return $this->belongsTo(products::class);
+    }
+    /**
+     * The roles that belong to the Checkout
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function User(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * The roles that belong to the Discount
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function Discount(): BelongsTo
+    {
+        return $this->belongsTo(Discount::class);
+    }
 }

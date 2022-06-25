@@ -29,34 +29,45 @@
                      @csrf
                   <div class="mb-4">
                     <label for="exampleInputEmail1" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="type here" />
+                    <input name="name" type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="type here" value="{{ Auth::user()->name }}" required />
+                    @if ($errors->has('name'))
+                    <p class="text-danger">{{ $errors->first('name') }}</p>
+                    @endif
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputEmail1" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email@gmail.com" />
-                  </div>
-                  <div class="mb-4">
-                    <label for="exampleInputEmail1" class="form-label">Occupation</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="type here" />
+                    <input name="email" type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email@gmail.com" value="{{Auth::user()->email}}" required/>
+                     @if ($errors->has('email'))
+                    <p class="text-danger">{{ $errors->first('name') }}</p>
+                    @endif
                   </div>
 
                   <div class="mb-4">
                     <label for="exampleInputEmail1" class="form-label">Phone number</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="+62 xxxxxxxx" />
+                    <input name="phone" type="text" class="form-control {{ $errors->has('phone_number') ? 'is-invalid' : '' }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="+62 xxxxxxxx" value="{{old('phone') ?: Auth::user()->phone}}"  required/>
+                    @if ($errors->has('phone_number'))
+                    <p class="text-danger">{{ $errors->first('phone_number') }}</p>
+                    @endif
                   </div>
                   <div class="mb-4">
-                    <label for="exampleInputEmail1" class="form-label">Address</label>
-                    <textarea class="form-control" id="address" rows="3" placeholder="type here"></textarea>
+                    <label for="exampleInputEmail1" class="form-label ">Address</label>
+                    <textarea name="address" class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}" id="address" rows="3" placeholder="type here" value="{{old('address') ?: Auth::user()->address}}" required ></textarea>
+                    @if ($errors->has('address'))
+                    <p class="text-danger">{{ $errors->first('address') }}</p>
+                    @endif
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputEmail1" class="form-label">Discount Code</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <input name="discount" type="text" class="form-control {{$errors->has('discount') ? 'is-invalid' : ''}}" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{old('discount')}}"/>
+                    @if ($errors -> has ('discount'))
+                    <p class="text-danger">{{$errors->first('discount')}}</p>
+                    @endif
                   </div>
                 <h5 class="pb-3">Payment Method</h5>
                   <p>
                     <img src="{{ asset('img/ic_midtran.svg') }}" class="icon" alt="midtrans" />
                   </p>
-                
+
                 <h5 class="mt-4">Payment Summary</h5>
                   <div class="payment-summary">
                      <div class="row">
