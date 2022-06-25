@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title', 100);
             $table->string('slug', 100);
             $table->string('product_image', 100);
-            $table->longText('products_description');
+            $table->longText('product_description');
             $table->integer('price')->unsigned();
             $table->boolean('is_sale')->default(false);
             $table->timestamps();

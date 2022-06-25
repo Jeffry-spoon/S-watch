@@ -78,20 +78,28 @@
         <h2 class="section_title">Featured</h2>
 
         <div class="featured_container grid">
-          <article class="featured_card">
-            <span class="featured_tag">Sale</span>
+            @foreach ($data as $item )
+            @if ($item->is_sale == true)
+                    <article class="featured_card">
+                    <span class="featured_tag">Sale</span>
 
-            <img src="{{asset('img/featured1.png')}}" alt="Product" class="featured_img" />
+                    <img src="{{ asset($item->product_image) }}" alt="Product" class="featured_img" />
 
-            <div class="featured_data">
-              <h3 class="featured_title">Jazzmaster</h3>
-              <span class="featured_price">$1050</span>
-            </div>
+                    <div class="featured_data">
+                    <h3 class="featured_title">{{ $item->title }}</h3>
+                    <span class="featured_price">Rp. @php
+                        echo  number_format($item->price)
+                    @endphp</span>
+                    </div>
 
-            <a href="{{ route('checkout') }}" class="btn btn-master btn-primary mt-3 button featured_button">Order Now</a>
-          </article>
+                    <a href="{{ route('welcome.show', $item->slug) }}" class="btn btn-master btn-primary mt-3 button featured_button">Order Now</a>
+                </article>
+            @endif
 
-          <article class="featured_card">
+            @endforeach
+
+
+          {{-- <article class="featured_card">
             <span class="featured_tag">Sale</span>
 
             <img src="{{asset('img/featured2.png')}}" alt="Product" class="featured_img" />
@@ -115,7 +123,7 @@
             </div>
 
             <a href="#" class="btn btn-master btn-primary mt-3 button featured_button">Order Now</a>
-          </article>
+          </article> --}}
         </div>
       </section>
 

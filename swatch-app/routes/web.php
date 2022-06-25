@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\ContentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\User\CheckoutController;
+use App\Models\Checkout;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,26 +20,34 @@ use App\Http\Controllers\UserController;
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [CheckoutController::class, 'index']
+)->name('welcome');
 
-Route::get('signup', function () {
-    return view('signup');
-})->name('signup');
+Route::get('checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
+Route::get('checkout/{product:slug}', [CheckoutController::class, 'show'])->name('welcome.show');
+Route::post('checkout/{product}', [CheckoutController::class, 'store'])->name('checkout.store');
 
-Route::get('success-checkout', function () {
-    return view('success_checkout');
-})->name('success-checkout');
+
 
 // Socialite routes
 Route::get('sign-in-google', [UserController::class, 'google'])->name('user.login.google');
 
 Route::get('auth/google/callback', [UserController::class, 'handleProviderCallback'])->name('user.google.callback');
 
-Route::get('checkout', function () {
-    return view('checkout');
-})->name('checkout');
+// User Manual Register
+Route::get('login',[LoginController::class, 'index'])->name('login');
+Route::post('login_user',[LoginController::class, 'authenticate'])->name('login-user');
+
+Route::post('signup', [RegisterController::class, 'index']
+);
+Route::post('signup', [RegisterController::class, 'store']
+);
+
+// Route::get('checkout/{product:slug}', function () {
+//     return view('checkout');
+// })->name('checkout');
+
+// Route::get('checkout/{product:slug}', [CheckoutController::class, 'create'])->name('checkout.create');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
