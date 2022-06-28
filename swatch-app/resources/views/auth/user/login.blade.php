@@ -29,24 +29,6 @@
           <p>
             <a class="btn btn-border btn-google-signup" href="{{ route('user.login.google')}}"> <img src="{{asset('img/ic_google.svg')}}" class="icon" alt="" /> Log in with Google </a>
           </p>
-
-          <div class="line">
-            <p class="or">or</p>
-          </div>
-
-          <div class="input-container email">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" />
-          </div>
-          <div class="input-container password">
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password" />
-          </div>
-
-          <div class="input-container cta">
-            <a href="#"> <label class="forgot-password-container"> Forgot passowrd ? </label></a>
-          </div>
-          <a href="index.html" style="color: white; display: block; text-align: center" class="signup-btn btn-primary">Log in</a>
           <div class="signup-container">
             <p>New user?</p>
             <a href="{{ route('signup') }}"><strong>Sign up</strong></a>

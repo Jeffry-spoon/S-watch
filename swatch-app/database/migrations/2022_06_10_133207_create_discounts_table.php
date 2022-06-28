@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->unsignedInteger('percentage');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

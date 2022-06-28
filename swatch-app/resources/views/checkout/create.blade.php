@@ -77,20 +77,14 @@
                     @endphp</div>
                      </div>
                      <div class="row">
-                       <div class="item"><em>Discount</em></div>
-                       <div class="price">$0.00 USD</div>
-                     </div>
-
-                     <div class="row">
-                       <div class="item"><em>Tax</em></div>
-                       <div class="price">Rp. @php
-                        echo  number_format( $product->price * 10/100 )
-                    @endphp</div>
+                       <div class="item"><em>shipping cost</em></div>
+                       <div class="price">Rp. 0
+                    </div>
                      </div>
                      <div class="row plus-ten mt-3">
                        <div class="item total"><strong>Total</strong></div>
                        <div class="price total-price"><strong>Rp. @php
-                        echo  number_format( $price )
+                        echo  number_format( $product->price )
                     @endphp</strong></div>
                 <button type="submit" class="w-100 btn submit btn-primary mt-5">Pay Now</button>
                 <p class="text-center subheader mt-4"><img src="/assets/images/ic_secure.svg" alt="" /> Your payment is secure and encrypted.</p>

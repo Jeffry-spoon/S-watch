@@ -155,30 +155,23 @@
         <h2 class="section_title">Products</h2>
 
         <div class="products_container grid">
-          <article class="products_card">
-            <img src="{{asset('img/product1.png')}}" alt="product" class="products_image" />
 
-            <h3 class="products_title">Spirit rose</h3>
-            <span class="products_price"> $1500 </span>
+        @foreach ($data as $item)
+            @if ($item->is_sale != true)
+            <article class="products_card">
+            <img src="{{ asset($item->product_image) }}"" alt="product" class="products_image" />
 
-            <a href="#" class="btn btn-master btn-primary mt-3">Order Now</a>
+            <h3 class="products_title">{{ $item->title }}</h3>
+            <span class="products_price"> Rp. @php
+                        echo  number_format($item->price)
+                    @endphp</span>
+
+            <a href="{{ route('welcome.show', $item->slug)  }}" class="btn btn-master btn-primary mt-3">Order Now</a>
           </article>
-          <article class="products_card">
-            <img src="{{asset('img/featured2.png')}}" alt="product" class="products_image" />
+            @endif
+        @endforeach
 
-            <h3 class="products_title">Khaki pilot</h3>
-            <span class="products_price"> $1350 </span>
 
-            <a href="#" class="btn btn-master btn-primary mt-3">Order Now</a>
-          </article>
-          <article class="products_card">
-            <img src="{{asset('img/featured3.png')}}" alt="product" class="products_image" />
-
-            <h3 class="products_title">Jubilee black</h3>
-            <span class="products_price"> $870 </span>
-
-            <a href="#" class="btn btn-master btn-primary mt-3">Order Now</a>
-          </article>
         </div>
       </section>
 

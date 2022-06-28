@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\products;
+use App\Models\Product;
 
 class ProductTableSeeder extends Seeder
 {
@@ -47,6 +47,6 @@ class ProductTableSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s', time())
             ],
     ];
-    products::insert($products);
+    Product::insert($products);
     }
 }

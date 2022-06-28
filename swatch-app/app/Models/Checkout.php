@@ -23,13 +23,13 @@ class Checkout extends Model
     ];
 
     /**
-     * Get the Camp that owns the Checkout
+     * Get the products that owns the Checkout
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Camp(): BelongsTo
+    public function Product(): BelongsTo
     {
-        return $this->belongsTo(products::class);
+        return $this->belongsTo(Product::class);
     }
     /**
      * The roles that belong to the Checkout

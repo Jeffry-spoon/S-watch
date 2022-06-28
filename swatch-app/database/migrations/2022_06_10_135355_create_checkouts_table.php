@@ -24,10 +24,9 @@ return new class extends Migration
             $table->integer('discount_percentage')->nullable();
             $table->integer('total')->default(0);
             $table->timestamps();
+            $table->softDeletes();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('discount_id')->references('id')->on('discounts');
+
         });
     }
 
