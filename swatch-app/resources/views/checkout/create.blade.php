@@ -18,7 +18,7 @@
                   <img src="{{ asset($product->product_image) }}" alt="" class="cover" />
                   <h1 class="package">{{ $product->title }}</h1>
                   <p class="description">
-                    {{ $product->product_description }}
+                    {!! $product->product_description !!}
                   </p>
                 </div>
               </div>
